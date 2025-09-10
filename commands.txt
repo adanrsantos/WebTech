@@ -1,0 +1,8 @@
+Local Commands:
+- ssh -i "CS4413FA2501.pem" ubuntu@ec2-3-142-91-26.us-east-2.compute.amazonaws.com
+- scp -i ~/WebTech/CS4413FA2501.pem -r ~/WebTech/**change** ubuntu@3.142.91.26:/var/www/html/
+Server Commands:
+- cd /var/www/html
+- ls -ltrah
+- sudo chown -R ubuntu:www-data www/
+- sudo chmod g+s /var/www/
