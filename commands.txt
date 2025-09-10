@@ -6,3 +6,4 @@ Server Commands:
 - ls -ltrah
 - sudo chown -R ubuntu:www-data www/
 - sudo chmod g+s /var/www/
+- cat /etc/nginx/sites-available/default
