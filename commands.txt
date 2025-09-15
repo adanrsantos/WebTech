@@ -7,3 +7,6 @@ Server Commands:
 - sudo chown -R ubuntu:www-data www/
 - sudo chmod g+s /var/www/
 - cat /etc/nginx/sites-available/default
+Website:
+- http://ec2-3-142-91-26.us-east-2.compute.amazonaws.com/
+- https://ec2-3-142-91-26.us-east-2.compute.amazonaws.com/
