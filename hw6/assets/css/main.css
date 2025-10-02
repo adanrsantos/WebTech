@@ -1,0 +1,71 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.default {
+    width: 100%;
+    background-color: #DBDBDB;
+}
+
+.main-header {
+    background-color: #9BC2E6;
+    text-align: center;
+}
+
+.inner-header {
+    background-color: #E2EFDA;
+}
+
+.menu-row {
+    background: #FFE699;
+    height: 40px;
+    text-align: center;
+}
+
+.menu:link, .menu:visited {
+    color: black;
+    background-color: lightblue;
+    border-radius: 20px;
+    padding: 5px 25px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu:hover, .menu:active {
+    background-color: #FF3636;
+}
+
+.current {
+    background-color: #FF3636 !important;
+}
+
+.table {
+    border: 2px solid black;
+    width: 50%;
+    margin: 0px auto;
+    table-layout: fixed;
+}
+
+.table-header {
+    background-color: #FFE699;
+}
+
+.table-week {
+    background-color: #E2EFDA;
+    text-align: center;
+}
+
+.available {
+    text-align: center;
+    background-color: #00B0F0;
+}
+
+.busy {
+    text-align: center;
+    background-color: #AA5656;
+}
+
+.unknown {
+    text-align: center
+}
