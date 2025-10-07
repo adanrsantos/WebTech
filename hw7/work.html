@@ -1,42 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Welcome to Adan's WorkPage</title>
-<link href="assets/css/main.css" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Welcome to Adan's HobbiesPage</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="assets/css/fontAwesome.css">
+<link rel="stylesheet" href="assets/css/light-box.css">
+<link rel="stylesheet" href="assets/css/owl-carousel.css">
+<link rel="stylesheet" href="assets/css/templatemo-style.css">
 </head>
 <body>
-    <table class="default" id="top">
-        <tr>
-            <td>
-                <div class="main-header">
-                    <h1>Welcome to my website!</h1>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="menu-row">
-                    <a class="menu " href="index.html">Home</a>
-                    <a class="menu" href="school.html">School</a>
-                    <a class="menu" href="hobbies.html">Hobbies</a>
-                    <a class="menu current" href="#work">Work</a>
-                    <a class="menu" href="contact.html">Contact</a>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <table class="default"> 
-        <tr id="work">
-            <td>
-                <div class="inner-header">
-                    <h2>About Myself:</h2>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="left section">
+    <header class="nav-down responsive-nav hidden-lg hidden-md">
+        <!-- <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button> -->
+        <!-- <div class="collapse navbar-collapse"> -->
+        <div>
+            <nav>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="school.html">School</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="sidebar-navigation hidden-sm hidden-xs">
+        <div class="logo">
+            <a href="#">Adan's<em> Website</em></a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <span class="rect"></span>
+                        <span class="circle"></span>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="school.html">
+                        <span class="rect"></span>
+                        <span class="circle"></span>
+                        School
+                    </a>
+                </li>
+                <li>
+                    <a href="hobbies.html">
+                        <span class="rect"></span>
+                        <span class="circle"></span>
+                        Hobbies
+                    </a>
+                </li>
+                <li>
+                    <a href="#top" class="active-section">
+                        <span class="rect"></span>
+                        <span class="circle"></span>
+                        Work
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span class="rect"></span>
+                        <span class="circle"></span>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <ul class="social-icons">
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </div>
+    <div class="page-content">
+        <section id="projects" class="content-section">
+            <div class="section-heading">
+                <h1>Work &<br><em>Dream Job</em></h1>
+                <p>Welcome to Work and Dream Job Section, 
+                <br>This section will cover where I currently work and my future dream job.</p>
+            </div>
+            <div class="section-content">
+                <div>
                     <h4><i>Currently Work:</i></h4>
                     <p>
                         I current work at <b>H-E-B</b> in the curbside department. I've been working here for about a year and 3/4.
@@ -44,7 +98,7 @@
                         to work there in the digital department in the future.
                     </p>
                 </div>
-                <div class="right section">
+                <div>
                     <h4><i>Future Dream Job:</i></h4>
                     <p>
                         My dream job would be to work at a <b>FAANG</b> company as a full stack developer. My other dream would be to create my own business
@@ -54,8 +108,11 @@
                 <div>
                     <a href="#top">Back to Start</a>
                 </div>
-            </td>
-        </tr>
-    </table>
+            </div>            
+        </section>
+        <section class="footer">
+            <p>Thank you for your time!</p>
+        </section>
+    </div>
 </body>
 </html>
