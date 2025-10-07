@@ -26,9 +26,9 @@ p {
   position: relative;
   width: 100%;
   display: inline-block;
-  height: auto;
+  height: 100vh;
   left: 50%;
-  text-align: center;
+  text-align: left;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
@@ -63,6 +63,20 @@ p {
   color: #343434;
   position: absolute;
   top: 12.5px;
+}
+
+.paragraph-container {
+  margin-bottom: 40px;
+}
+
+.paragraph-container p {
+  color: #707070;
+  font-size: medium;
+}
+
+.paragraph-container li {
+  color: #707070;
+  font-size: medium;
 }
 
 .white-button a {
@@ -593,27 +607,27 @@ header {
 
 
 
-/* Projects Style */
+/* main-container Style */
 
-#projects {
+.main-container {
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 50px;
 }
 
-#projects .masonry {
+.main-container .masonry {
   position: relative;
   width: 100%;
 }
 
-#projects .masonry .item img {
+.main-container .masonry .item img {
   transition: all 1s;
   width: 100%;
   overflow: hidden;
   margin-bottom: 30px;
 }
 
-#projects .masonry .item img:hover {
+.main-container .masonry .item img:hover {
   opacity: 0.5;
 }
 
@@ -1040,7 +1054,8 @@ header {
     right: 0;
   }
 
-  #projects {
+  .main-container {
+    height: 100vh;
     padding-left: 15px;
     padding-right: 15px;
   }
