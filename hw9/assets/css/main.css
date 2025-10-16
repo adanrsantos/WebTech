@@ -1,0 +1,35 @@
+.my-table {
+    border: 1px solid #616161;
+    width: 50%;
+    margin: 0px auto;
+    table-layout: fixed;
+}
+
+.my-table th,
+.my-table td {
+    border: 1px solid #616161;
+}
+
+.my-table .table-header {
+    background-color: #FFE699;
+    text-align: center;
+}
+
+.my-table .table-week {
+    background-color: #E2EFDA;
+    text-align: center;
+}
+
+.my-table .available {
+    text-align: center;
+    background-color: #00B0F0;
+}
+
+.my-table .busy {
+    text-align: center;
+    background-color: #AA5656;
+}
+
+.my-table .unknown {
+    text-align: center
+}
