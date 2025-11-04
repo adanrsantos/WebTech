@@ -7,7 +7,6 @@
     <p>Welcome to my homepage</p>
     <?php
         $today=date("F j, Y");
-        $today=strtoupper($today);
         echo "<p>Today is: $today</p>";
     ?>
 </body>
