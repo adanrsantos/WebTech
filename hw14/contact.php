@@ -93,7 +93,7 @@
                             echo '<div class="alert alert-danger">You must
                             fill out the contact form before viewing the results!</div>';
                         }
-                        echo '<form action="" method="post">';
+                        echo '<form action="contact.php" method="post">';
                             echo '<div id="fnGroup" class="form-group has-default">';
                                 echo '<label class="control-label">First Name:</label>';
                                 echo '<input type="text" id="firstName" name="firstName" class="form-control">';
