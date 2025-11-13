@@ -86,7 +86,7 @@
                 <br>This section will have my contact information.</p>
             </div>
             <div class="section-content">
-                <h3>Please fill out the following form: test</h3>
+                <h3>Please fill out the following form:</h3>
                 <?php
                     if (!isset($_POST['submit'])) {
                         if (isset($_GET['msg']) && $_GET['msg']=="error") {
