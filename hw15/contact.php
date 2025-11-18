@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include("functions.php");
+    
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,59 +94,190 @@
                 <h3>Please fill out the following form:</h3>
                 <?php
                     if (!isset($_POST['submit'])) {
-                        // if (isset($_GET['msg']) && $_GET['msg']=="error") {
-                        //     echo '<div class="alert alert-danger">You must
-                        //     fill out the contact form before viewing the results!</div>';
-                        // }
                         echo '<form action="contact.php" method="post">';
-                            if (isset($_GET['error']) && $_GET['error']=="fnNull") {
+                            if (isset($_GET['error']) && strstr($_GET['error'], "fn")) {
                                 echo '<div id="fnGroup" class="form-group has-error">';
                                     echo '<label class="control-label">First Name:</label>';
-                                    echo '<input type="text" id="firstName" name="firstName" class="form-control">';
-                                    echo '<span id="fnFeedBack" class="help-block">First name cannot be blank!</span>';
+                                    if (strstr($_GET['error'], "fnNull")) {
+                                        echo '<input type="text" id="firstName" name="firstName" value="'.$_SESSION['fnData'].'" class="form-control">';
+                                        echo '<span id="fnFeedBack" class="help-block">First name cannot be blank!</span>';
+                                    }
+                                    if (strstr($_GET['error'], "fnInvalidChar")){
+                                        echo '<input type="text" id="firstName" name="firstName" value="'.$_SESSION['fnData'].'" class="form-control">';
+                                        echo '<span id="fnFeedBack" class="help-block">First name cannot contain invalid characters!</span>';
+                                    }                                    
                                 echo '</div>';
                             } else {
-                                echo '<div id="fnGroup" class="form-group has-default">';
-                                    echo '<label class="control-label">First Name:</label>';
-                                    echo '<input type="text" id="firstName" name="firstName" class="form-control">';
-                                    echo '<span id="fnFeedBack" class="help-block"></span>';
-                                echo '</div>';
+                                if ($_SESSION['fnData'] != ""){
+                                    echo '<div id="fnGroup" class="form-group has-success">';
+                                        echo '<label class="control-label">First Name:</label>';
+                                        echo '<input type="text" id="firstName" name="firstName" value="'.$_SESSION['fnData'].'" class="form-control">';
+                                        echo '<span id="fnFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<div id="fnGroup" class="form-group has-default">';
+                                        echo '<label class="control-label">First Name:</label>';
+                                        echo '<input type="text" id="firstName" name="firstName" class="form-control">';
+                                        echo '<span id="fnFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                }
                             }
-                            echo '<div id="lnGroup" class="form-group has-default">';
-                                echo '<label class="control-label">Last Name:</label>';
-                                echo '<input type="text" id="lastName" name="lastName" class="form-control">';
-                                echo '<span id="lnFeedBack" class="help-block"></span>';
-                            echo '</div>';
-                            echo '<div id="emailGroup" class="form-group">';
-                                echo '<label class="control-label">Email:</label>';
-                                echo '<input type="text" id="email" name="email" class="form-control">';
-                                echo '<span id="emailFeedBack" class="help-block"></span>';
-                            echo '</div>';
-                            echo '<div id="phoneGroup" class="form-group">';
-                                echo '<label class="control-label">Phone:</label>';
-                                echo '<input type="text" id="phone" name="phone" class="form-control">';
-                                echo '<span id="phoneFeedBack" class="help-block"></span>';
-                            echo '</div>';
-                            echo '<div id="usernameGroup" class="form-group">';
-                                echo '<label class="control-label">Username:</label>';
-                                echo '<input type="text" id="username" name="username" class="form-control">';
-                                echo '<span id="usernameFeedBack" class="help-block"></span>';
-                            echo '</div>';
-                            echo '<div id="pwdGroup" class="form-group">';
-                                echo '<label class="control-label">Password:</label>';
-                                echo '<input type="text" id="password" name="password" class="form-control">';
-                                echo '<span id="pwdFeedBack" class="help-block"></span>';
-                            echo '</div>';
-                            echo '<div id="commentGroup" class="form-group">';
-                                echo '<label class="control-label">Comments:</label>';
-                                echo '<input type="text" id="comment" name="comments" class="form-control">';
-                                echo '<span id="commentFeedBack" class="help-block"></span>';
-                            echo '</div>';
+                            if (isset($_GET['error']) && strstr($_GET['error'], "ln")) {
+                                echo '<div id="lnGroup" class="form-group has-error">';
+                                    echo '<label class="control-label">Last Name:</label>';
+                                    if (strstr($_GET['error'], "lnNull")) {
+                                        echo '<input type="text" id="lastName" name="lastName" value="'.$_SESSION['lnData'].'" class="form-control">';
+                                        echo '<span id="lnFeedBack" class="help-block">Last name cannot be blank!</span>';
+                                    }
+                                    if (strstr($_GET['error'], "lnInvalidChar")){
+                                        echo '<input type="text" id="lastName" name="lastName" value="'.$_SESSION['lnData'].'" class="form-control">';
+                                        echo '<span id="lnFeedBack" class="help-block">Last name cannot contain invalid characters!</span>';
+                                    }                                    
+                                echo '</div>';
+                            } else {
+                                if ($_SESSION['lnData'] != ""){
+                                    echo '<div id="lnGroup" class="form-group has-success">';
+                                        echo '<label class="control-label">Last Name:</label>';
+                                        echo '<input type="text" id="lastName" name="lastName" value="'.$_SESSION['lnData'].'" class="form-control">';
+                                        echo '<span id="lnFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<div id="lnGroup" class="form-group has-default">';
+                                        echo '<label class="control-label">Last Name:</label>';
+                                        echo '<input type="text" id="lastName" name="lastName" class="form-control">';
+                                        echo '<span id="lnFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                }
+                            }
+                            if (isset($_GET['error']) && strstr($_GET['error'], "email")) {
+                                echo '<div id="emailGroup" class="form-group has-error">';
+                                    echo '<label class="control-label">Email:</label>';
+                                    if (strstr($_GET['error'], "emailNull")) {
+                                        echo '<input type="text" id="email" name="email" value="'.$_SESSION['emailData'].'" class="form-control">';
+                                        echo '<span id="emailFeedBack" class="help-block">Email cannot be blank!</span>';
+                                    }
+                                    if (strstr($_GET['error'], "emailInvalid")){
+                                        echo '<input type="text" id="email" name="email" value="'.$_SESSION['emailData'].'" class="form-control">';
+                                        echo '<span id="emailFeedBack" class="help-block">Email cannot contain invalid characters!</span>';
+                                    }                                    
+                                echo '</div>';
+                            } else {
+                                if ($_SESSION['emailData'] != ""){
+                                    echo '<div id="emailGroup" class="form-group has-success">';
+                                        echo '<label class="control-label">Email:</label>';
+                                        echo '<input type="text" id="email" name="email" value="'.$_SESSION['emailData'].'" class="form-control">';
+                                        echo '<span id="emailFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<div id="emailGroup" class="form-group has-default">';
+                                        echo '<label class="control-label">Email:</label>';
+                                        echo '<input type="text" id="email" name="email" class="form-control">';
+                                        echo '<span id="emailFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                }
+                            }
+                            if (isset($_GET['error']) && strstr($_GET['error'], "phone")) {
+                                echo '<div id="phoneGroup" class="form-group has-error">';
+                                    echo '<label class="control-label">Phone:</label>';
+                                    if (strstr($_GET['error'], "phoneNull")) {
+                                        echo '<input type="text" id="phone" name="phone" value="'.$_SESSION['phoneData'].'" class="form-control">';
+                                        echo '<span id="phoneFeedBack" class="help-block">Phone cannot be blank!</span>';
+                                    }
+                                    if (strstr($_GET['error'], "phoneInvalid")){
+                                        echo '<input type="text" id="phone" name="phone" value="'.$_SESSION['phoneData'].'" class="form-control">';
+                                        echo '<span id="phoneFeedBack" class="help-block">Phone cannot contain invalid characters!</span>';
+                                    }                                    
+                                echo '</div>';
+                            } else {
+                                if ($_SESSION['phoneData'] != ""){
+                                    echo '<div id="phoneGroup" class="form-group has-success">';
+                                        echo '<label class="control-label">Phone:</label>';
+                                        echo '<input type="text" id="phone" name="phone" value="'.$_SESSION['phoneData'].'" class="form-control">';
+                                        echo '<span id="phoneFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<div id="phoneGroup" class="form-group has-default">';
+                                        echo '<label class="control-label">Phone:</label>';
+                                        echo '<input type="text" id="phone" name="phone" class="form-control">';
+                                        echo '<span id="phoneFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                }
+                            }
+                            if (isset($_GET['error']) && strstr($_GET['error'], "username")) {
+                                echo '<div id="usernameGroup" class="form-group has-error">';
+                                    echo '<label class="control-label">Username:</label>';
+                                    if (strstr($_GET['error'], "usernameNull")) {
+                                        echo '<input type="text" id="username" name="username" value="'.$_SESSION['usernameData'].'" class="form-control">';
+                                        echo '<span id="usernameFeedBack" class="help-block">Username cannot be blank!</span>';
+                                    }                                
+                                echo '</div>';
+                            } else {
+                                if ($_SESSION['usernameData'] != ""){
+                                    echo '<div id="usernameGroup" class="form-group has-success">';
+                                        echo '<label class="control-label">Username:</label>';
+                                        echo '<input type="text" id="username" name="username" value="'.$_SESSION['usernameData'].'" class="form-control">';
+                                        echo '<span id="usernameFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<div id="usernameGroup" class="form-group has-default">';
+                                        echo '<label class="control-label">Username:</label>';
+                                        echo '<input type="text" id="username" name="username" class="form-control">';
+                                        echo '<span id="usernameFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                }
+                            }
+                            if (isset($_GET['error']) && strstr($_GET['error'], "password")) {
+                                echo '<div id="passwordGroup" class="form-group has-error">';
+                                    echo '<label class="control-label">Password:</label>';
+                                    if (strstr($_GET['error'], "passwordNull")) {
+                                        echo '<input type="text" id="password" name="password" value="'.$_SESSION['passwordData'].'" class="form-control">';
+                                        echo '<span id="passwordFeedBack" class="help-block">Password cannot be blank!</span>';
+                                    }                                 
+                                echo '</div>';
+                            } else {
+                                if ($_SESSION['passwordData'] != ""){
+                                    echo '<div id="pwdGroup" class="form-group has-success">';
+                                        echo '<label class="control-label">Password:</label>';
+                                        echo '<input type="text" id="password" name="password" value="'.$_SESSION['passwordData'].'" class="form-control">';
+                                        echo '<span id="pwdFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<div id="pwdGroup" class="form-group has-default">';
+                                        echo '<label class="control-label">Password:</label>';
+                                        echo '<input type="text" id="password" name="password" class="form-control">';
+                                        echo '<span id="pwdFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                }
+                            }
+                            if (isset($_GET['error']) && strstr($_GET['error'], "comments")) {
+                                echo '<div id="commentsGroup" class="form-group has-error">';
+                                    echo '<label class="control-label">Comments:</label>';
+                                    if (strstr($_GET['error'], "commentsNull")) {
+                                        echo '<input type="text" id="comments" name="comments" value="'.$_SESSION['commentsData'].'" class="form-control">';
+                                        echo '<span id="commentsFeedBack" class="help-block">Comments cannot be blank!</span>';
+                                    }                                 
+                                echo '</div>';
+                            } else {
+                                if ($_SESSION['commentsData'] != ""){
+                                    echo '<div id="commentsGroup" class="form-group has-success">';
+                                        echo '<label class="control-label">Comments:</label>';
+                                        echo '<input type="text" id="comments" name="comments" value="'.$_SESSION['commentsData'].'" class="form-control">';
+                                        echo '<span id="commentsFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                } else {
+                                    echo '<div id="commentsGroup" class="form-group has-default">';
+                                        echo '<label class="control-label">Comments:</label>';
+                                        echo '<input type="text" id="comments" name="comments" class="form-control">';
+                                        echo '<span id="commentsFeedBack" class="help-block"></span>';
+                                    echo '</div>';
+                                }
+                            }
                             echo '<div id="formGroup" class="form-group">';
                                 echo '<button type="submit" name="submit" value="submit" class="btn btn-success">Submit</button>';
                             echo '</div>';
                         echo '</form>';
                     } else {
+                        $errors="";
                         $firstName=$_POST['firstName'];
                         $lastName=$_POST['lastName'];
                         $email=$_POST['email'];
@@ -149,9 +285,58 @@
                         $username=$_POST['username'];
                         $password=$_POST['password'];
                         $comments=$_POST['comments'];
-                        if (empty($firstName) || empty($lastName) || empty($email) || empty($phone) || empty($username) || empty($password) || empty($comments)) {
-                            header("Location: contact.php?msg=error");
-                            exit;
+
+                        $_SESSION['fnData']=$firstName;
+                        $_SESSION['lnData']=$lastName;
+                        $_SESSION['emailData']=$email;
+                        $_SESSION['phoneData']=$phone;
+                        $_SESSION['usernameData']=$username;
+                        $_SESSION['passwordData']=$password;
+                        $_SESSION['commentsData']=$comments;
+
+                        //firstName
+                        if (empty($firstName)) {
+                            $errors .= "fnNull";
+                        }
+                        elseif (!preg_match("/^[A-Za-z'-]+$/", $firstName)) {
+                            $errors .= "fnInvalidChar";
+                        }
+                        //lastName
+                        if (empty($lastName)) {
+                            $errors .= "lnNull";
+                        }
+                        elseif (!preg_match("/^[A-Za-z'-]+$/", $lastName)) {
+                            $errors .= "lnInvalidChar";
+                        }
+                        //email
+                        if (empty($email)) {
+                            $errors .= "emailNull";
+                        }
+                        elseif (!preg_match("/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/", $email)) {
+                            $errors .= "emailInvalid";
+                        }
+                        //phone
+                        if (empty($phone)) {
+                            $errors .= "phoneNull";
+                        }
+                        elseif (!preg_match("/^\d+$/", $phone)) {
+                            $errors .= "phoneInvalid";
+                        }
+                        //username
+                        if (empty($username)) {
+                            $errors .= "usernameNull";
+                        }
+                        //password
+                        if (empty($password)) {
+                            $errors .= "passwordNull";
+                        }
+                        //comment
+                        if (empty($comments)) {
+                            $errors .= "commentsNull";
+                        }
+
+                        if ($errors!="") {
+                            redirect("contact.php?error=$errors");
                         } else {
                             echo '<div class="alert alert-success">Form submitted successfully!</div>';
                             echo '<div><b><i>First Name:</i></b> '.$firstName.'</div>';
